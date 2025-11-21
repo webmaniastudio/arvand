@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>درباره آروند | معرفی گروه کشاورزی</title>
+    <meta name="description" content="شرکت آروند با بیش از ۱۰ سال تجربه، تولیدکننده برتر کودهای شیمیایی، ارگانیک و ریزمغذی‌ها در ایران. آشنایی با تیم متخصصان و اهداف ما.">
+    <meta name="keywords" content="درباره آروند, شرکت کود کشاورزی, تولید کود NPK, کود ارگانیک, مشاوره کشاورزی, تاریخچه آروند">
+    <meta name="author" content="Arvand Agricultural Group">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/about.html">
+
+    <!-- Open Graph / Facebook & Telegram -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/about.html">
+    <meta property="og:title" content="درباره آروند | پیشرو در صنعت کشاورزی">
+    <meta property="og:description" content="آروند همراه شما در مسیر کشاورزی پایدار. تولیدکننده انواع کود و سموم با تکنولوژی روز دنیا.">
+    <meta property="og:image" content="https://yourwebsite.com/https://www.pistaciahome.com/Portals/0/Modules/Hypermedia/6210/Images/Thumbs/13299_360w_218h_10531320220713_759776.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/about.html">
+    <meta property="twitter:title" content="درباره آروند | پیشرو در صنعت کشاورزی">
+    <meta property="twitter:description" content="تولیدکننده تخصصی نهاده‌های کشاورزی با ضمانت کیفیت.">
+    <meta property="twitter:image" content="https://yourwebsite.com/https://www.pistaciahome.com/Portals/0/Modules/Hypermedia/6210/Images/Thumbs/13299_360w_218h_10531320220713_759776.jpg">
+
+    <!-- Schema.org Structured Data (Organization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Arvand Agricultural Group",
+      "alternateName": "شرکت آروند",
+      "url": "https://yourwebsite.com",
+      "logo": "https://yourwebsite.com/logo.png",
+      "foundingDate": "2010",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "نام موسس"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "میدان آزادی، پلاک ۱۱۰",
+        "addressLocality": "Tehran",
+        "addressRegion": "Tehran",
+        "postalCode": "123456789",
+        "addressCountry": "IR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+98-21-66001234",
+        "contactType": "customer service",
+        "areaServed": "IR",
+        "availableLanguage": ["Persian", "English"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/sabzineh",
+        "https://www.linkedin.com/company/sabzineh"
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
+                    colors: {
+                        pistachio: {
+                            50: '#f4f9f0', 100: '#eaf4e2', 500: '#93c572', 600: '#769e5b',
+                            700: '#587644', 800: '#3b4f2e',
+                        },
+                        gray: { 800: '#1f2937', 850: '#17202e', 900: '#111827' }
+                    }
+                }
+            }
+        }
+
+        // Fix Dark Mode Flicker
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="font-sans transition-colors duration-300 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 transition-all duration-300" id="main-header">
+        <div class="absolute inset-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-gray-700/50 transition-colors duration-300"></div>
+
+        <div class="container mx-auto px-6 relative z-10 h-20">
+            <div class="flex justify-between items-center h-full">
+                
+                <!-- Right: Mobile Menu + Logo -->
+                <div class="flex items-center gap-4 z-20">
+                    <button id="mobile-menu-btn" class="md:hidden text-3xl text-gray-600 dark:text-gray-300 hover:text-pistachio-500 transition-colors flex items-center">
+                        <i class='bx bx-menu-alt-right'></i>
+                    </button>
+
+                    <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:transform-none flex items-center gap-2">
+                        <img src="images/logo-arvand.png" alt="Arvand Agricultural Group" class="h-10 w-auto object-contain">
+                        <span class="text-2xl font-bold text-pistachio-700 dark:text-white tracking-wide">آروند</span>
+                    </a>
+                </div>
+
+                <!-- Center: Navigation -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700 dark:text-gray-300 h-full md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 z-10">
+                    <a href="index.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">صفحه اصلی</a>
+                    
+                    <!-- About Us (ACTIVE) -->
+                    <a href="about.html" class="text-pistachio-500 font-bold flex items-center h-full border-b-2 border-pistachio-500">معرفی شرکت</a>
+                    
+                    <!-- Products -->
+                    <div class="relative group h-full flex items-center">
+                        <a href="product.html" class="flex items-center gap-1 hover:text-pistachio-500 transition h-full cursor-pointer py-2 border-b-2 border-transparent hover:border-pistachio-500/50">
+                            محصولات
+                            <i class='bx bx-chevron-down text-lg mt-1'></i>
+                        </a>
+                        <!-- Mega Menu -->
+                        <div class="absolute top-full right-1/2 translate-x-1/2 w-64 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-b-xl border-t-4 border-pistachio-500 text-right py-2">
+                            <div class="relative group/sub border-b border-gray-100 dark:border-gray-700">
+                                <a href="product.html?category=chemical" class="flex justify-between items-center px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 hover:text-pistachio-600 transition-colors text-gray-700 dark:text-gray-200">
+                                    <span>کودهای شیمیایی</span><i class='bx bx-chevron-left text-lg'></i>
+                                </a>
+                            </div>
+                            <div class="relative group/sub">
+                                <a href="product.html?category=pesticides" class="flex justify-between items-center px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 hover:text-pistachio-600 transition-colors text-gray-700 dark:text-gray-200">
+                                    <span>سموم و آفات</span><i class='bx bx-chevron-left text-lg'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="gallery.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">خدمات و گالری</a>
+                    <a href="articles.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">مقالات</a>
+                    <a href="index.html#contact" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">تماس با ما</a>
+                </nav>
+
+                <!-- Left: Theme Toggle -->
+                <div class="flex items-center z-20">
+                    <button id="theme-toggle" class="w-10 h-10 rounded-full border border-pistachio-500 text-pistachio-500 hover:bg-pistachio-500 hover:text-white transition duration-300 flex items-center justify-center bg-white dark:bg-gray-800">
+                        <i class='bx bx-sun text-xl' id="theme-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Menu -->
+    <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] opacity-0 invisible transition-all duration-300 md:hidden" onclick="closeMenu()"></div>
+    <div id="mobile-sidebar" class="fixed top-0 right-0 bottom-0 w-[85%] max-w-[300px] bg-white dark:bg-gray-900 z-[70] shadow-2xl transform translate-x-full transition-transform duration-300 ease-out md:hidden flex flex-col border-l border-gray-200 dark:border-gray-800">
+        <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-800">
+            <span class="font-bold text-lg text-gray-800 dark:text-white">منوی خدمات</span>
+            <button id="close-sidebar-btn" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-red-500 transition flex items-center justify-center">
+                <i class='bx bx-x text-2xl'></i>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-home-alt text-xl'></i>صفحه اصلی</a></li>
+                
+                <!-- Active in Mobile -->
+                <li><a href="about.html" class="flex items-center gap-3 p-3 rounded-xl text-pistachio-600 bg-pistachio-50 dark:bg-pistachio-900/20 dark:text-pistachio-400 transition font-bold"><i class='bx bx-building-house text-xl'></i>معرفی شرکت</a></li>
+                
+                <li><a href="product.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-store text-xl'></i>محصولات</a></li>
+                <li><a href="gallery.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-images text-xl'></i>گالری و خدمات</a></li>
+                <li><a href="articles.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-news text-xl'></i>مقالات</a></li>
+                <li><a href="index.html#contact" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-phone text-xl'></i>تماس با ما</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://www.pistaciahome.com/Portals/0/Modules/Hypermedia/6213/Images/Thumbs/13299_360w_218h_10330120220801__DSC4490.jpg" alt="مزرعه آروند" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-gray-900/90"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-3xl animate-fade-in-up">
+            <span class="text-pistachio-400 font-bold text-lg mb-2 block">داستان ما</span>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">ریشه‌ای استوار در خاک، نگاهی به آینده</h1>
+            <p class="text-gray-300 text-lg leading-8">
+                ما در آروند بر این باوریم که کشاورزی پایدار، ضامن سلامت نسل‌های آینده است. از سال ۱۳۸۹ همراه شماییم تا بهترین ثمره را برداشت کنید.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        
+        <!-- Story Section -->
+        <section class="flex flex-col lg:flex-row items-center gap-12 mb-24">
+            <div class="w-full lg:w-1/2 order-2 lg:order-1 space-y-6 text-justify">
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4 border-r-4 border-pistachio-500 pr-4">تاریخچه آروند</h2>
+                <p class="text-gray-600 dark:text-gray-300 leading-8">
+                    شرکت آروند در سال ۱۳۸۹ با هدف تأمین نهاده‌های کشاورزی باکیفیت و ارتقای سطح دانش کشاورزان منطقه تأسیس شد. آنچه با یک فروشگاه کوچک آغاز شد، امروز به یکی از بزرگترین تأمین‌کنندگان کود و سم در سطح کشور تبدیل شده است.
+                </p>
+                <p class="text-gray-600 dark:text-gray-300 leading-8">
+                    تیم تحقیق و توسعه ما متشکل از برترین مهندسین کشاورزی، همواره در تلاش است تا با فرمولاسیون‌های جدید، بهره‌وری مزارع را افزایش دهد. ما معتقدیم که کیفیت، اتفاقی نیست و حاصل سال‌ها تجربه و تعهد است.
+                </p>
+                <div class="pt-4 grid grid-cols-2 gap-4">
+                    <div class="flex items-center gap-3">
+                        <i class='bx bx-check-circle text-2xl text-pistachio-500'></i>
+                        <span class="font-bold dark:text-white">۱۰+ سال تجربه</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class='bx bx-check-circle text-2xl text-pistachio-500'></i>
+                        <span class="font-bold dark:text-white">تضمین اصالت کالا</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class='bx bx-check-circle text-2xl text-pistachio-500'></i>
+                        <span class="font-bold dark:text-white">ارسال به سراسر کشور</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class='bx bx-check-circle text-2xl text-pistachio-500'></i>
+                        <span class="font-bold dark:text-white">مشاوره تخصصی</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 order-1 lg:order-2 h-[400px] rounded-3xl overflow-hidden shadow-2xl relative group">
+                <img src="https://www.pistaciahome.com/Portals/0/Modules/Hypermedia/6210/Images/Thumbs/13299_360w_218h_10531320220713_759776.jpg" alt="تیم آروند در مزرعه" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 border-4 border-pistachio-500/30 rounded-3xl"></div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-white">ارزش‌های بنیادین ما</h2>
+                <div class="w-16 h-1 bg-pistachio-500 mx-auto mt-4 rounded"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg text-center border-b-4 border-transparent hover:border-pistachio-500 transition hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-pistachio-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 text-pistachio-600 text-3xl">
+                        <i class='bx bx-leaf'></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">پایداری محیط زیست</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">تعهد به تولید محصولاتی که کمترین آسیب را به خاک و آب وارد می‌کنند.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg text-center border-b-4 border-transparent hover:border-pistachio-500 transition hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-pistachio-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 text-pistachio-600 text-3xl">
+                        <i class='bx bx-test-tube'></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">نوآوری و کیفیت</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">استفاده از تکنولوژی‌های روز دنیا برای تولید کودهای هوشمند و مؤثر.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg text-center border-b-4 border-transparent hover:border-pistachio-500 transition hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-pistachio-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 text-pistachio-600 text-3xl">
+                        <i class='bx bx-support'></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">مشتری مداری</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">پشتیبانی و مشاوره رایگان به کشاورزان تا لحظه برداشت محصول.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section (Counter) -->
+        <section class="bg-pistachio-600 dark:bg-gray-800 rounded-3xl p-10 md:p-16 text-white mb-24 relative overflow-hidden shadow-2xl">
+            <div class="absolute inset-0 opacity-10 pattern-bg"></div> <!-- Optional pattern -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="1200">0</div>
+                    <div class="text-pistachio-200 text-sm md:text-base">مشتری راضی</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="50">0</div>
+                    <div class="text-pistachio-200 text-sm md:text-base">محصول متنوع</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="15">0</div>
+                    <div class="text-pistachio-200 text-sm md:text-base">نمایندگی فعال</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="100">0</div>
+                    <div class="text-pistachio-200 text-sm md:text-base">پروژه موفق</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="mb-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-white">تیم متخصص ما</h2>
+                <p class="text-gray-600 dark:text-gray-400 mt-2">افرادی که پشت هر محصول آروند ایستاده‌اند</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Member 1 -->
+                <div class="group text-center">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-transparent group-hover:border-pistachio-500 transition shadow-lg">
+                        <img src="https://www.pistaciahome.com/Portals/Modules/Superlinks/14334/02095220251108_Nutrient%20Zinc%20copy.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <h4 class="font-bold text-lg dark:text-white">مهندس رضایی</h4>
+                    <p class="text-sm text-pistachio-600 dark:text-pistachio-400">مدیر عامل</p>
+                </div>
+                <!-- Member 2 -->
+                <div class="group text-center">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-transparent group-hover:border-pistachio-500 transition shadow-lg">
+                        <img src="https://www.pistaciahome.com/Portals/Modules/Superlinks/14334/10191520251108_Nutrient%20Mang%20copy.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <h4 class="font-bold text-lg dark:text-white">دکتر اکبری</h4>
+                    <p class="text-sm text-pistachio-600 dark:text-pistachio-400">مدیر تحقیق و توسعه</p>
+                </div>
+                <!-- Member 3 -->
+                <div class="group text-center">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-transparent group-hover:border-pistachio-500 transition shadow-lg">
+                        <img src="https://www.pistaciahome.com/Portals/Modules/Superlinks/14334/10200420251108_Nutrient%20Mixgold%20copy.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <h4 class="font-bold text-lg dark:text-white">مهندس کریمی</h4>
+                    <p class="text-sm text-pistachio-600 dark:text-pistachio-400">مشاور فنی</p>
+                </div>
+                <!-- Member 4 -->
+                <div class="group text-center">
+                    <div class="w-40 h-40 mx-auto rounded-full overflow-hidden mb-4 border-4 border-transparent group-hover:border-pistachio-500 transition shadow-lg">
+                        <img src="https://www.pistaciahome.com/Portals/Modules/Superlinks/14334/10175320251108_Nutrient%20Zinc%20Bor%20B%20copy.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <h4 class="font-bold text-lg dark:text-white">خانم محمدی</h4>
+                    <p class="text-sm text-pistachio-600 dark:text-pistachio-400">مدیر فروش</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+<!-- Footer (Mobile Horizontal Fix) -->
+    <footer id="main-footer" class="bg-gray-900 text-gray-400 border-t border-gray-800 mt-auto text-sm">
+        <div class="container mx-auto px-4 py-6">
+            
+            <!-- Main Column -->
+            <div class="flex flex-col items-center justify-center gap-4">
+                
+                <!-- 1. Brand (Centered) -->
+                <a href="index.html" class="flex items-center gap-2 group hover:text-white transition">
+                    <i class='bx bxs-leaf text-pistachio-500 text-2xl group-hover:scale-110 transition'></i>
+                    <span class="text-lg font-bold tracking-wide text-white">آروند</span>
+                </a>
+
+                <!-- 2. Info Line (Always Horizontal) -->
+                <!-- flex-row keeps them side-by-side on mobile -->
+                <div class="flex flex-row flex-wrap justify-center items-center gap-3 opacity-70 text-xs">
+                    
+                    <!-- Copyright -->
+                    <span class="whitespace-nowrap">© ۱۴۰۳ کلیه حقوق محفوظ است</span>
+                    
+                    <!-- Divider (Visible on Mobile too) -->
+                    <span class="w-px h-3 bg-gray-600"></span>
+                    
+                    <!-- Developer -->
+                    <a href="#" target="_blank" class="flex items-center gap-1 group hover:text-white transition whitespace-nowrap" aria-label="طراحی وب‌مانیا">
+                        <span>طراحی:</span>
+                        <span class="text-pistachio-500 group-hover:text-pistachio-400 transition font-bold">وب‌مانیا</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+<!-- Support Floating Button (Fixed Icons) -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+        
+        <!-- Options Menu -->
+        <div id="support-options" class="flex flex-col gap-3 items-center transition-all duration-300 opacity-0 invisible translate-y-10">
+            
+            <!-- Telegram -->
+            <a href="#" class="w-12 h-12 bg-blue-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200">
+                <i class='bx bxl-telegram text-2xl'></i>
+            </a>
+            
+            <!-- WhatsApp -->
+            <a href="#" class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200">
+                <i class='bx bxl-whatsapp text-2xl'></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200">
+                <i class='bx bxl-instagram text-2xl'></i>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:02112346600" class="w-12 h-12 bg-orange-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200">
+                <i class='bx bxs-phone text-2xl'></i>
+            </a>
+
+        </div>
+
+        <!-- Main Button -->
+        <button id="support-btn" class="w-14 h-14 bg-pistachio-500 text-white rounded-full shadow-2xl flex items-center justify-center text-3xl hover:bg-pistachio-600 transition-all duration-300 relative z-50 group">
+            
+            <!-- Icon: Headset (Default Visible) -->
+            <i class='bx bx-support absolute transition-all duration-300 scale-100 opacity-100 rotate-0' id="btn-icon-open"></i>
+            
+            <!-- Icon: X (Default Hidden) -->
+            <i class='bx bx-x absolute transition-all duration-300 scale-0 opacity-0 -rotate-90' id="btn-icon-close"></i>
+            
+            <!-- Pulse Animation -->
+            <span class="absolute inset-0 rounded-full bg-white opacity-20 animate-ping"></span>
+        </button>
+
+    </div>
+
+    <!-- Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const supportBtn = document.getElementById('support-btn');
+            const options = document.getElementById('support-options');
+            const iconOpen = document.getElementById('btn-icon-open');   // آیکون هدفون
+            const iconClose = document.getElementById('btn-icon-close'); // آیکون ضربدر
+            let isOpen = false;
+
+            if(supportBtn) {
+                supportBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    isOpen = !isOpen;
+                    toggleMenu();
+                });
+            }
+
+            function toggleMenu() {
+                if (isOpen) {
+                    // 1. نمایش منو
+                    options.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+                    
+                    // 2. مخفی کردن آیکون هدفون (چرخش و محو شدن)
+                    iconOpen.classList.remove('scale-100', 'opacity-100', 'rotate-0');
+                    iconOpen.classList.add('scale-0', 'opacity-0', 'rotate-90');
+
+                    // 3. نمایش آیکون ضربدر (چرخش و ظاهر شدن)
+                    iconClose.classList.remove('scale-0', 'opacity-0', '-rotate-90');
+                    iconClose.classList.add('scale-100', 'opacity-100', 'rotate-0');
+
+                } else {
+                    // 1. مخفی کردن منو
+                    options.classList.add('opacity-0', 'invisible', 'translate-y-10');
+                    
+                    // 2. نمایش مجدد آیکون هدفون
+                    iconOpen.classList.remove('scale-0', 'opacity-0', 'rotate-90');
+                    iconOpen.classList.add('scale-100', 'opacity-100', 'rotate-0');
+
+                    // 3. مخفی کردن آیکون ضربدر
+                    iconClose.classList.remove('scale-100', 'opacity-100', 'rotate-0');
+                    iconClose.classList.add('scale-0', 'opacity-0', '-rotate-90');
+                }
+            }
+
+            // بستن منو با کلیک بیرون
+            document.addEventListener('click', (e) => {
+                if (isOpen && !supportBtn.contains(e.target) && !options.contains(e.target)) {
+                    isOpen = false;
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+    <script src="about.js"></script>
+</body>
+</html>
