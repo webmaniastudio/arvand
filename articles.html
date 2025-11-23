@@ -40,6 +40,22 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
+    <style>
+        /* اصلاحات LTR */
+        html[dir="ltr"] .bx-chevron-left { transform: rotate(180deg); }
+        html[dir="ltr"] .bx-left-arrow-alt { transform: rotate(180deg); }
+        html[dir="ltr"] .font-sans { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* اسکرول بار سفارشی */
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; }
+        
+        /* مخفی کردن اسکرول بار افقی */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
 <body class="font-sans transition-colors duration-300 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
 
@@ -57,55 +73,74 @@
                     </button>
 
                     <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:transform-none flex items-center gap-2">
-                        <img src="images/logo-arvand.png" alt="Arvand Agricultural Group" class="h-10 w-auto object-contain">
-                        <span class="text-2xl font-bold text-pistachio-700 dark:text-white tracking-wide">آروند</span>
+                        <img src="images/logo-arvand.png" alt="Arvand Logo" class="h-10 w-auto object-contain">
+                        <span class="text-2xl font-bold text-pistachio-700 dark:text-white tracking-wide" data-i18n="brand">آروند</span>
                     </a>
                 </div>
 
                 <!-- Center: Navigation -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700 dark:text-gray-300 h-full md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 z-10">
-                    <!-- Link 1 -->
-                    <a href="index.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">صفحه اصلی</a>
-                    <!-- Link 2 -->
-                    <a href="about.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">معرفی شرکت</a>
+                    <a href="index.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_home">صفحه اصلی</a>
+                    <a href="about.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_about">معرفی شرکت</a>
                     
-                    <!-- Link 3: Products -->
+                    <!-- Products Dropdown -->
                     <div class="relative group h-full flex items-center">
                         <a href="product.html" class="flex items-center gap-1 hover:text-pistachio-500 transition h-full cursor-pointer py-2 border-b-2 border-transparent hover:border-pistachio-500/50">
-                            محصولات
-                            <i class='bx bx-chevron-down text-lg mt-1'></i>
+                            <span data-i18n="nav_products">محصولات</span>
+                            <i class='bx bx-chevron-down text-lg mt-1 group-hover:rotate-180 transition-transform duration-300'></i>
                         </a>
+                        
                         <!-- Mega Menu -->
-                        <div class="absolute top-full right-1/2 translate-x-1/2 w-64 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-b-xl border-t-4 border-pistachio-500 text-right py-2">
+                        <div class="absolute top-full rtl:right-1/2 rtl:translate-x-1/2 ltr:left-1/2 ltr:-translate-x-1/2 w-64 invisible opacity-0 translate-y-4 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-b-xl border-t-4 border-pistachio-500 text-start py-2 z-50">
+                            <!-- Chemical -->
                             <div class="relative group/sub border-b border-gray-100 dark:border-gray-700">
                                 <a href="product.html?category=chemical" class="flex justify-between items-center px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 hover:text-pistachio-600 transition-colors text-gray-700 dark:text-gray-200">
-                                    <span>کودهای شیمیایی</span><i class='bx bx-chevron-left text-lg'></i>
+                                    <span data-i18n="cat_chemical">کودهای شیمیایی</span>
+                                    <i class='bx bx-chevron-left text-lg rtl:rotate-0 ltr:rotate-180'></i>
                                 </a>
-                                <div class="absolute top-0 right-full w-56 invisible opacity-0 translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 mr-1 text-left">
+                                <div class="absolute top-0 rtl:right-full rtl:mr-1 ltr:left-full ltr:ml-1 w-56 invisible opacity-0 rtl:translate-x-2 ltr:-translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 text-start z-50">
                                     <a href="product.html?category=chemical" class="block px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-gray-700 rounded-t-xl">NPK 20-20-20</a>
                                     <a href="product.html?category=chemical" class="block px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-b-xl">Urea 46%</a>
                                 </div>
                             </div>
+                            <!-- Micro -->
+                            <div class="relative group/sub border-b border-gray-100 dark:border-gray-700">
+                                <a href="product.html?category=micro" class="flex justify-between items-center px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 hover:text-pistachio-600 transition-colors text-gray-700 dark:text-gray-200">
+                                    <span data-i18n="cat_micro">ریز مغذی‌ها</span>
+                                    <i class='bx bx-chevron-left text-lg rtl:rotate-0 ltr:rotate-180'></i>
+                                </a>
+                                <div class="absolute top-0 rtl:right-full rtl:mr-1 ltr:left-full ltr:ml-1 w-56 invisible opacity-0 rtl:translate-x-2 ltr:-translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 text-start z-50">
+                                    <a href="product.html?category=micro" class="block px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-xl">Iron Chelate</a>
+                                </div>
+                            </div>
+                            <!-- Pesticides -->
                             <div class="relative group/sub">
                                 <a href="product.html?category=pesticides" class="flex justify-between items-center px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 hover:text-pistachio-600 transition-colors text-gray-700 dark:text-gray-200">
-                                    <span>سموم و آفات</span><i class='bx bx-chevron-left text-lg'></i>
+                                    <span data-i18n="cat_pesticides">سموم و آفات</span>
+                                    <i class='bx bx-chevron-left text-lg rtl:rotate-0 ltr:rotate-180'></i>
                                 </a>
+                                <div class="absolute top-0 rtl:right-full rtl:mr-1 ltr:left-full ltr:ml-1 w-56 invisible opacity-0 rtl:translate-x-2 ltr:-translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 text-start z-50">
+                                    <a href="product.html?category=pesticides" class="block px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-xl">Fungicide</a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Link 4 -->
-                    <a href="gallery.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">خدمات و گالری</a>
+                    <a href="gallery.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_gallery">خدمات و گالری</a>
                     
-                    <!-- Link 5: Articles (ACTIVE) -->
-                    <a href="articles.html" class="text-pistachio-500 font-bold flex items-center h-full border-b-2 border-pistachio-500">مقالات</a>
+                    <!-- Active Link: Articles -->
+                    <a href="articles.html" class="text-pistachio-500 font-bold flex items-center h-full border-b-2 border-pistachio-500" data-i18n="nav_articles">مقالات</a>
                     
-                    <!-- Link 6 -->
-                    <a href="index.html#contact" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">تماس با ما</a>
+                    <a href="index.html#contact" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_contact">تماس با ما</a>
                 </nav>
 
-                <!-- Left: Theme Toggle -->
-                <div class="flex items-center z-20">
+                <!-- Left: Theme & Language Toggle -->
+                <div class="flex items-center gap-3 z-20">
+                    <!-- Language Toggle -->
+                    <button id="lang-toggle" class="w-10 h-10 rounded-full border border-pistachio-500 text-pistachio-500 hover:bg-pistachio-500 hover:text-white transition duration-300 flex items-center justify-center bg-white dark:bg-gray-800 font-bold text-sm leading-none pb-0.5">
+                        EN
+                    </button>
+                    <!-- Theme Toggle -->
                     <button id="theme-toggle" class="w-10 h-10 rounded-full border border-pistachio-500 text-pistachio-500 hover:bg-pistachio-500 hover:text-white transition duration-300 flex items-center justify-center bg-white dark:bg-gray-800">
                         <i class='bx bx-sun text-xl' id="theme-icon"></i>
                     </button>
@@ -116,32 +151,22 @@
 
     <!-- Mobile Sidebar Menu -->
     <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] opacity-0 invisible transition-all duration-300 md:hidden" onclick="closeMenu()"></div>
-
-    <div id="mobile-sidebar" class="fixed top-0 right-0 bottom-0 w-[85%] max-w-[300px] bg-white dark:bg-gray-900 z-[70] shadow-2xl transform translate-x-full transition-transform duration-300 ease-out md:hidden flex flex-col border-l border-gray-200 dark:border-gray-800">
-        
+    <div id="mobile-sidebar" class="fixed top-0 right-0 bottom-0 w-[85%] max-w-[300px] bg-white dark:bg-gray-900 z-[70] shadow-2xl transform translate-x-full rtl:translate-x-full ltr:translate-x-full transition-transform duration-300 ease-out md:hidden flex flex-col border-l border-gray-200 dark:border-gray-800">
         <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-800">
-            <span class="font-bold text-lg text-gray-800 dark:text-white">منوی خدمات</span>
+            <span class="font-bold text-lg text-gray-800 dark:text-white" data-i18n="menu_title">منوی خدمات</span>
             <button id="close-sidebar-btn" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-red-500 transition flex items-center justify-center">
                 <i class='bx bx-x text-2xl'></i>
             </button>
         </div>
-
         <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
             <ul class="space-y-2">
-                <li><a href="index.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-home-alt text-xl'></i>صفحه اصلی</a></li>
-                <li><a href="about.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-building-house text-xl'></i>معرفی شرکت</a></li>
-                <li><a href="product.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-store text-xl'></i>محصولات</a></li>
-                <li><a href="gallery.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-images text-xl'></i>گالری و خدمات</a></li>
-                
+                <li><a href="index.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-home-alt text-xl'></i><span data-i18n="nav_home">صفحه اصلی</span></a></li>
+                <li><a href="about.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-building-house text-xl'></i><span data-i18n="nav_about">معرفی شرکت</span></a></li>
+                <li><a href="product.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-store text-xl'></i><span data-i18n="nav_products">محصولات</span></a></li>
+                <li><a href="gallery.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-images text-xl'></i><span data-i18n="nav_gallery">گالری و خدمات</span></a></li>
                 <!-- Active Link in Mobile -->
-                <li>
-                    <a href="articles.html" class="flex items-center gap-3 p-3 rounded-xl text-pistachio-600 bg-pistachio-50 dark:bg-pistachio-900/20 dark:text-pistachio-400 transition font-bold">
-                        <i class='bx bx-news text-xl'></i>
-                        مقالات
-                    </a>
-                </li>
-
-                <li><a href="index.html#contact" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-phone text-xl'></i>تماس با ما</a></li>
+                <li><a href="articles.html" class="flex items-center gap-3 p-3 rounded-xl text-pistachio-600 bg-pistachio-50 dark:bg-pistachio-900/20 dark:text-pistachio-400 transition font-bold"><i class='bx bx-news text-xl'></i><span data-i18n="nav_articles">مقالات</span></a></li>
+                <li><a href="index.html#contact" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-phone text-xl'></i><span data-i18n="nav_contact">تماس با ما</span></a></li>
             </ul>
         </div>
     </div>
@@ -151,22 +176,22 @@
         
         <!-- Breadcrumb -->
         <div class="mb-8 text-sm opacity-70 flex items-center gap-2 dark:text-gray-300">
-            <a href="index.html" class="hover:text-pistachio-500">خانه</a> / 
-            <span class="text-pistachio-500 font-bold">مقالات و دانستنی‌ها</span>
+            <a href="index.html" class="hover:text-pistachio-500" data-i18n="nav_home">خانه</a> / 
+            <span class="text-pistachio-500 font-bold" data-i18n="crumb_articles">مقالات و دانستنی‌ها</span>
         </div>
 
         <!-- Header & Filters -->
         <div class="flex flex-col md:flex-row justify-between items-end md:items-center mb-10 gap-4">
             <div>
-                <h1 class="text-3xl font-bold mb-2 text-gray-800 dark:text-white">وبلاگ کشاورزی</h1>
-                <p class="opacity-60 text-sm dark:text-gray-400">جدیدترین اخبار و مقالات علمی حوزه کشاورزی</p>
+                <h1 class="text-3xl font-bold mb-2 text-gray-800 dark:text-white" data-i18n="page_title">وبلاگ کشاورزی</h1>
+                <p class="opacity-60 text-sm dark:text-gray-400" data-i18n="page_subtitle">جدیدترین اخبار و مقالات علمی حوزه کشاورزی</p>
             </div>
             
             <div class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto no-scrollbar">
-                <button onclick="filterArticles('all')" class="filter-btn active bg-pistachio-500 text-white px-4 py-2 rounded-full text-sm whitespace-nowrap transition shadow-md shadow-pistachio-500/20" data-cat="all">همه مطالب</button>
-                <button onclick="filterArticles('educational')" class="filter-btn bg-transparent border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:border-pistachio-500 hover:text-pistachio-500 transition" data-cat="educational">آموزشی</button>
-                <button onclick="filterArticles('news')" class="filter-btn bg-transparent border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:border-pistachio-500 hover:text-pistachio-500 transition" data-cat="news">اخبار شرکت</button>
-                <button onclick="filterArticles('tech')" class="filter-btn bg-transparent border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:border-pistachio-500 hover:text-pistachio-500 transition" data-cat="tech">تکنولوژی</button>
+                <button onclick="filterArticles('all')" class="filter-btn active bg-pistachio-500 text-white px-4 py-2 rounded-full text-sm whitespace-nowrap transition shadow-md shadow-pistachio-500/20" data-cat="all" data-i18n="filter_all">همه مطالب</button>
+                <button onclick="filterArticles('educational')" class="filter-btn bg-transparent border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:border-pistachio-500 hover:text-pistachio-500 transition" data-cat="educational" data-i18n="filter_edu">آموزشی</button>
+                <button onclick="filterArticles('news')" class="filter-btn bg-transparent border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:border-pistachio-500 hover:text-pistachio-500 transition" data-cat="news" data-i18n="filter_news">اخبار شرکت</button>
+                <button onclick="filterArticles('tech')" class="filter-btn bg-transparent border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap hover:border-pistachio-500 hover:text-pistachio-500 transition" data-cat="tech" data-i18n="filter_tech">تکنولوژی</button>
             </div>
         </div>
 
@@ -176,90 +201,48 @@
         </div>
 
         <!-- Pagination -->
-        <div class="flex justify-center mt-16 gap-2">
-            <button class="w-10 h-10 rounded-lg bg-white dark:bg-gray-800 hover:bg-pistachio-500 hover:text-white dark:hover:bg-pistachio-500 transition flex items-center justify-center shadow text-gray-600 dark:text-gray-300"><i class='bx bx-chevron-right'></i></button>
+        <div class="flex justify-center mt-16 gap-2" dir="ltr">
+            <button class="w-10 h-10 rounded-lg bg-white dark:bg-gray-800 hover:bg-pistachio-500 hover:text-white dark:hover:bg-pistachio-500 transition flex items-center justify-center shadow text-gray-600 dark:text-gray-300"><i class='bx bx-chevron-left'></i></button>
             <button class="w-10 h-10 rounded-lg bg-pistachio-500 text-white flex items-center justify-center shadow shadow-pistachio-500/30">1</button>
             <button class="w-10 h-10 rounded-lg bg-white dark:bg-gray-800 hover:bg-pistachio-500 hover:text-white dark:hover:bg-pistachio-500 transition flex items-center justify-center shadow text-gray-600 dark:text-gray-300">2</button>
-            <button class="w-10 h-10 rounded-lg bg-white dark:bg-gray-800 hover:bg-pistachio-500 hover:text-white dark:hover:bg-pistachio-500 transition flex items-center justify-center shadow text-gray-600 dark:text-gray-300"><i class='bx bx-chevron-left'></i></button>
+            <button class="w-10 h-10 rounded-lg bg-white dark:bg-gray-800 hover:bg-pistachio-500 hover:text-white dark:hover:bg-pistachio-500 transition flex items-center justify-center shadow text-gray-600 dark:text-gray-300"><i class='bx bx-chevron-right'></i></button>
         </div>
 
     </div>
 
-<!-- Footer (Mobile Horizontal Fix) -->
+    <!-- Footer -->
     <footer id="main-footer" class="bg-gray-900 text-gray-400 border-t border-gray-800 mt-auto text-sm">
         <div class="container mx-auto px-4 py-6">
-            
-            <!-- Main Column -->
             <div class="flex flex-col items-center justify-center gap-4">
-                
-                <!-- 1. Brand (Centered) -->
                 <a href="index.html" class="flex items-center gap-2 group hover:text-white transition">
                     <i class='bx bxs-leaf text-pistachio-500 text-2xl group-hover:scale-110 transition'></i>
-                    <span class="text-lg font-bold tracking-wide text-white">آروند</span>
+                    <span class="text-lg font-bold tracking-wide text-white" data-i18n="brand">آروند</span>
                 </a>
-
-                <!-- 2. Info Line (Always Horizontal) -->
-                <!-- flex-row keeps them side-by-side on mobile -->
                 <div class="flex flex-row flex-wrap justify-center items-center gap-3 opacity-70 text-xs">
-                    
-                    <!-- Copyright -->
-                    <span class="whitespace-nowrap">© ۱۴۰۳ کلیه حقوق محفوظ است</span>
-                    
-                    <!-- Divider (Visible on Mobile too) -->
+                    <span class="whitespace-nowrap" data-i18n="footer_copy">© ۱۴۰۳ کلیه حقوق محفوظ است</span>
                     <span class="w-px h-3 bg-gray-600"></span>
-                    
-                    <!-- Developer -->
-                    <a href="#" target="_blank" class="flex items-center gap-1 group hover:text-white transition whitespace-nowrap" aria-label="طراحی وب‌مانیا">
-                        <span>طراحی:</span>
-                        <span class="text-pistachio-500 group-hover:text-pistachio-400 transition font-bold">وب‌مانیا</span>
+                    <a href="#" target="_blank" class="flex items-center gap-1 group hover:text-white transition whitespace-nowrap">
+                        <span data-i18n="footer_design">طراحی:</span>
+                        <span class="text-pistachio-500 group-hover:text-pistachio-400 transition font-bold" data-i18n="footer_dev">وب‌مانیا</span>
                     </a>
-
                 </div>
-
             </div>
         </div>
     </footer>
-<!-- Support Floating Button (Fixed Icons) -->
+
+    <!-- Support Floating Button -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
-        
-        <!-- Options Menu -->
         <div id="support-options" class="flex flex-col gap-3 items-center transition-all duration-300 opacity-0 invisible translate-y-10">
-            
-            <!-- Telegram -->
-            <a href="#" class="w-12 h-12 bg-blue-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200">
-                <i class='bx bxl-telegram text-2xl'></i>
-            </a>
-            
-            <!-- WhatsApp -->
-            <a href="#" class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200">
-                <i class='bx bxl-whatsapp text-2xl'></i>
-            </a>
-
-            <!-- Instagram -->
-            <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200">
-                <i class='bx bxl-instagram text-2xl'></i>
-            </a>
-
-            <!-- Phone -->
-            <a href="tel:02112346600" class="w-12 h-12 bg-orange-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200">
-                <i class='bx bxs-phone text-2xl'></i>
-            </a>
-
+            <a href="#" class="w-12 h-12 bg-blue-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200"><i class='bx bxl-telegram text-2xl'></i></a>
+            <a href="#" class="w-12 h-12 bg-green-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200"><i class='bx bxl-whatsapp text-2xl'></i></a>
+            <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200"><i class='bx bxl-instagram text-2xl'></i></a>
+            <a href="tel:02112346600" class="w-12 h-12 bg-orange-500 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:-translate-y-1 transition-all duration-200"><i class='bx bxs-phone text-2xl'></i></a>
         </div>
-
-        <!-- Main Button -->
         <button id="support-btn" class="w-14 h-14 bg-pistachio-500 text-white rounded-full shadow-2xl flex items-center justify-center text-3xl hover:bg-pistachio-600 transition-all duration-300 relative z-50 group">
-            
-            <!-- Icon: Headset (Default Visible) -->
             <i class='bx bx-support absolute transition-all duration-300 scale-100 opacity-100 rotate-0' id="btn-icon-open"></i>
-            
-            <!-- Icon: X (Default Hidden) -->
             <i class='bx bx-x absolute transition-all duration-300 scale-0 opacity-0 -rotate-90' id="btn-icon-close"></i>
-            
-            <!-- Pulse Animation -->
             <span class="absolute inset-0 rounded-full bg-white opacity-20 animate-ping"></span>
         </button>
-
     </div>
 
     <!-- Script -->
@@ -267,8 +250,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             const supportBtn = document.getElementById('support-btn');
             const options = document.getElementById('support-options');
-            const iconOpen = document.getElementById('btn-icon-open');   // آیکون هدفون
-            const iconClose = document.getElementById('btn-icon-close'); // آیکون ضربدر
+            const iconOpen = document.getElementById('btn-icon-open');   
+            const iconClose = document.getElementById('btn-icon-close'); 
             let isOpen = false;
 
             if(supportBtn) {
@@ -281,32 +264,20 @@
 
             function toggleMenu() {
                 if (isOpen) {
-                    // 1. نمایش منو
                     options.classList.remove('opacity-0', 'invisible', 'translate-y-10');
-                    
-                    // 2. مخفی کردن آیکون هدفون (چرخش و محو شدن)
                     iconOpen.classList.remove('scale-100', 'opacity-100', 'rotate-0');
                     iconOpen.classList.add('scale-0', 'opacity-0', 'rotate-90');
-
-                    // 3. نمایش آیکون ضربدر (چرخش و ظاهر شدن)
                     iconClose.classList.remove('scale-0', 'opacity-0', '-rotate-90');
                     iconClose.classList.add('scale-100', 'opacity-100', 'rotate-0');
-
                 } else {
-                    // 1. مخفی کردن منو
                     options.classList.add('opacity-0', 'invisible', 'translate-y-10');
-                    
-                    // 2. نمایش مجدد آیکون هدفون
                     iconOpen.classList.remove('scale-0', 'opacity-0', 'rotate-90');
                     iconOpen.classList.add('scale-100', 'opacity-100', 'rotate-0');
-
-                    // 3. مخفی کردن آیکون ضربدر
                     iconClose.classList.remove('scale-100', 'opacity-100', 'rotate-0');
                     iconClose.classList.add('scale-0', 'opacity-0', '-rotate-90');
                 }
             }
 
-            // بستن منو با کلیک بیرون
             document.addEventListener('click', (e) => {
                 if (isOpen && !supportBtn.contains(e.target) && !options.contains(e.target)) {
                     isOpen = false;
@@ -315,6 +286,7 @@
             });
         });
     </script>
+    <!-- Link to Main Logic -->
     <script src="articles.js"></script>
 </body>
 </html>

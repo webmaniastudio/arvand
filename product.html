@@ -39,6 +39,17 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
+    <style>
+        /* اصلاحات برای زبان انگلیسی (LTR) */
+        html[dir="ltr"] .bx-chevron-left { transform: rotate(180deg); }
+        html[dir="ltr"] .font-sans { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* اسکرول بار سفارشی */
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; }
+    </style>
 </head>
 <body class="font-sans transition-colors duration-300 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
 
@@ -57,61 +68,76 @@
 
                     <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:transform-none flex items-center gap-2">
                         <img src="images/logo-arvand.png" alt="Arvand Agricultural Group" class="h-10 w-auto object-contain">
-                        <span class="text-2xl font-bold text-pistachio-700 dark:text-white tracking-wide">آروند</span>
+                        <span class="text-2xl font-bold text-pistachio-700 dark:text-white tracking-wide" data-i18n="brand">آروند</span>
                     </a>
                 </div>
 
                 <!-- Center: Navigation -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700 dark:text-gray-300 h-full md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 z-10">
-                    <!-- Link 1: Home -->
-                    <a href="index.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">صفحه اصلی</a>
+                    <a href="index.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_home">صفحه اصلی</a>
+                    <a href="about.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_about">معرفی شرکت</a>
                     
-                    <!-- Link 2: About Us (ADDED HERE) -->
-                    <a href="index.html#about" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">معرفی شرکت</a>
-                    
-                    <!-- Link 3: Products (Active) -->
+                    <!-- Products Dropdown (FIXED FOR LTR/RTL) -->
                     <div class="relative group h-full flex items-center">
                         <a href="product.html" class="flex items-center gap-1 text-pistachio-500 font-bold transition h-full cursor-pointer py-2 border-b-2 border-pistachio-500">
-                            محصولات
+                            <span data-i18n="nav_products">محصولات</span>
                             <i class='bx bx-chevron-down text-lg mt-1'></i>
                         </a>
-                        <!-- Mega Menu -->
-                        <div class="absolute top-full right-1/2 translate-x-1/2 w-64 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-b-xl border-t-4 border-pistachio-500 text-right py-2">
+                        
+                        <!-- Mega Menu Container -->
+                        <div class="absolute top-full right-1/2 translate-x-1/2 w-64 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-b-xl border-t-4 border-pistachio-500 text-start py-2">
+                            
+                            <!-- Option 1: Chemical -->
                             <div class="relative group/sub border-b border-gray-100 dark:border-gray-700">
                                 <a href="product.html?category=chemical" class="flex justify-between items-center px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 hover:text-pistachio-600 transition-colors text-gray-700 dark:text-gray-200">
-                                    <span>کودهای شیمیایی</span><i class='bx bx-chevron-left text-lg'></i>
+                                    <span data-i18n="cat_chemical">کودهای شیمیایی</span><i class='bx bx-chevron-left text-lg'></i>
                                 </a>
-                                <div class="absolute top-0 right-full w-56 invisible opacity-0 translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 mr-1 text-left">
+                                <!-- Sub Menu Fixed -->
+                                <div class="absolute top-0 rtl:right-full ltr:left-full w-56 invisible opacity-0 rtl:translate-x-2 ltr:-translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 rtl:mr-1 ltr:ml-1 text-start">
                                     <a href="product.html?category=chemical" class="block px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 border-b border-gray-100 dark:border-gray-700 rounded-t-xl">NPK 20-20-20</a>
                                     <a href="product.html?category=chemical" class="block px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-b-xl">Urea 46%</a>
                                 </div>
                             </div>
+
+                            <!-- Option 2: Micro -->
                             <div class="relative group/sub border-b border-gray-100 dark:border-gray-700">
                                 <a href="product.html?category=micro" class="flex justify-between items-center px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 hover:text-pistachio-600 transition-colors text-gray-700 dark:text-gray-200">
-                                    <span>ریز مغذی‌ها</span><i class='bx bx-chevron-left text-lg'></i>
+                                    <span data-i18n="cat_micro">ریز مغذی‌ها</span><i class='bx bx-chevron-left text-lg'></i>
                                 </a>
-                                <div class="absolute top-0 right-full w-56 invisible opacity-0 translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 mr-1 text-left">
+                                <!-- Sub Menu Fixed -->
+                                <div class="absolute top-0 rtl:right-full ltr:left-full w-56 invisible opacity-0 rtl:translate-x-2 ltr:-translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 rtl:mr-1 ltr:ml-1 text-start">
                                     <a href="product.html?category=micro" class="block px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-xl">Iron Chelate</a>
                                 </div>
                             </div>
+
+                            <!-- Option 3: Pesticides -->
                             <div class="relative group/sub">
                                 <a href="product.html?category=pesticides" class="flex justify-between items-center px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 hover:text-pistachio-600 transition-colors text-gray-700 dark:text-gray-200">
-                                    <span>سموم و آفات</span><i class='bx bx-chevron-left text-lg'></i>
+                                    <span data-i18n="cat_pesticides">سموم و آفات</span><i class='bx bx-chevron-left text-lg'></i>
                                 </a>
-                                <div class="absolute top-0 right-full w-56 invisible opacity-0 translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 mr-1 text-left">
+                                <!-- Sub Menu Fixed -->
+                                <div class="absolute top-0 rtl:right-full ltr:left-full w-56 invisible opacity-0 rtl:translate-x-2 ltr:-translate-x-2 group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-all duration-300 bg-white dark:bg-gray-800 shadow-xl rounded-xl border-t-4 border-pistachio-500 rtl:mr-1 ltr:ml-1 text-start">
                                     <a href="product.html?category=pesticides" class="block px-4 py-3 hover:bg-pistachio-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-xl">Fungicide</a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
-                    <a href="gallery.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">خدمات و گالری</a>
-                    <a href="articles.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">مقالات</a>
-                    <a href="index.html#contact" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50">تماس با ما</a>
+                    <a href="gallery.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_gallery">خدمات و گالری</a>
+                    <a href="articles.html" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_articles">مقالات</a>
+                    <a href="index.html#contact" class="hover:text-pistachio-500 transition py-2 flex items-center h-full border-b-2 border-transparent hover:border-pistachio-500/50" data-i18n="nav_contact">تماس با ما</a>
                 </nav>
 
-                <!-- Left: Theme Toggle -->
-                <div class="flex items-center z-20">
+                <!-- Left: Theme & Language Toggle -->
+                <div class="flex items-center gap-3 z-20">
+                    
+                    <!-- Language Toggle (Circular Button) -->
+                    <button id="lang-toggle" class="w-10 h-10 rounded-full border border-pistachio-500 text-pistachio-500 hover:bg-pistachio-500 hover:text-white transition duration-300 flex items-center justify-center bg-white dark:bg-gray-800 font-bold text-sm leading-none pb-0.5">
+                        EN
+                    </button>
+
+                    <!-- Theme Toggle -->
                     <button id="theme-toggle" class="w-10 h-10 rounded-full border border-pistachio-500 text-pistachio-500 hover:bg-pistachio-500 hover:text-white transition duration-300 flex items-center justify-center bg-white dark:bg-gray-800">
                         <i class='bx bx-sun text-xl' id="theme-icon"></i>
                     </button>
@@ -120,13 +146,13 @@
         </div>
     </header>
 
-    <!-- Mobile Sidebar Menu (Sidebar) -->
+    <!-- Mobile Sidebar Menu -->
     <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] opacity-0 invisible transition-all duration-300 md:hidden" onclick="closeMenu()"></div>
 
-    <div id="mobile-sidebar" class="fixed top-0 right-0 bottom-0 w-[85%] max-w-[300px] bg-white dark:bg-gray-900 z-[70] shadow-2xl transform translate-x-full transition-transform duration-300 ease-out md:hidden flex flex-col border-l border-gray-200 dark:border-gray-800">
+    <div id="mobile-sidebar" class="fixed top-0 right-0 bottom-0 w-[85%] max-w-[300px] bg-white dark:bg-gray-900 z-[70] shadow-2xl transform translate-x-full rtl:translate-x-full ltr:translate-x-full transition-transform duration-300 ease-out md:hidden flex flex-col border-l border-gray-200 dark:border-gray-800">
         
         <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-800">
-            <span class="font-bold text-lg text-gray-800 dark:text-white">منوی خدمات</span>
+            <span class="font-bold text-lg text-gray-800 dark:text-white" data-i18n="menu_title">منوی خدمات</span>
             <button id="close-sidebar-btn" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 hover:text-red-500 transition flex items-center justify-center">
                 <i class='bx bx-x text-2xl'></i>
             </button>
@@ -134,21 +160,17 @@
 
         <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
             <ul class="space-y-2">
-                <li><a href="index.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-home-alt text-xl'></i>صفحه اصلی</a></li>
-                
-                <!-- Added About Us to Mobile Menu -->
-                <li><a href="index.html#about" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-building-house text-xl'></i>معرفی شرکت</a></li>
-
+                <li><a href="index.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-home-alt text-xl'></i><span data-i18n="nav_home">صفحه اصلی</span></a></li>
+                <li><a href="index.html#about" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-building-house text-xl'></i><span data-i18n="nav_about">معرفی شرکت</span></a></li>
                 <li>
                     <a href="product.html" class="flex items-center gap-3 p-3 rounded-xl text-pistachio-600 bg-pistachio-50 dark:bg-pistachio-900/20 dark:text-pistachio-400 transition font-bold">
                         <i class='bx bx-store text-xl'></i>
-                        محصولات
+                        <span data-i18n="nav_products">محصولات</span>
                     </a>
                 </li>
-
-                <li><a href="gallery.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-images text-xl'></i>گالری و خدمات</a></li>
-                <li><a href="articles.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-news text-xl'></i>مقالات</a></li>
-                <li><a href="index.html#contact" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-phone text-xl'></i>تماس با ما</a></li>
+                <li><a href="gallery.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-images text-xl'></i><span data-i18n="nav_gallery">گالری و خدمات</span></a></li>
+                <li><a href="articles.html" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-news text-xl'></i><span data-i18n="nav_articles">مقالات</span></a></li>
+                <li><a href="index.html#contact" class="flex items-center gap-3 p-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pistachio-50 dark:hover:bg-gray-800 hover:text-pistachio-600 transition font-medium"><i class='bx bx-phone text-xl'></i><span data-i18n="nav_contact">تماس با ما</span></a></li>
             </ul>
         </div>
     </div>
@@ -158,8 +180,8 @@
         
         <!-- Breadcrumb -->
         <div class="mb-8 text-sm opacity-70 flex items-center gap-2 dark:text-gray-300">
-            <a href="index.html" class="hover:text-pistachio-500">خانه</a> / 
-            <a href="product.html" class="hover:text-pistachio-500 text-pistachio-500 font-bold">محصولات</a> 
+            <a href="index.html" class="hover:text-pistachio-500" data-i18n="nav_home">خانه</a> / 
+            <a href="product.html" class="hover:text-pistachio-500 text-pistachio-500 font-bold" data-i18n="nav_products">محصولات</a> 
             <span id="crumb-detail" class="hidden">/ <span class="text-pistachio-500 font-bold"></span></span>
         </div>
 
@@ -168,26 +190,26 @@
             <!-- Sidebar Filters (Sticky) -->
             <aside class="w-full lg:w-1/4 shrink-0 z-0">
                 <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg sticky top-24 border border-transparent dark:border-gray-700/50 transition-colors duration-300">
-                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 text-pistachio-600">دسته‌بندی‌ها</h3>
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 text-pistachio-600" data-i18n="sidebar_title">دسته‌بندی‌ها</h3>
                     
                     <!-- Mobile Select -->
                     <div class="lg:hidden mb-4">
                         <select id="mobile-category-select" class="w-full p-3 rounded-lg bg-gray-100 dark:bg-gray-700 border-none outline-none text-gray-700 dark:text-gray-200 focus:ring-2 focus:ring-pistachio-500">
-                            <option value="all">همه محصولات</option>
-                            <option value="chemical">کودهای شیمیایی</option>
-                            <option value="micro">ریزمغذی‌ها</option>
-                            <option value="growth">محرک‌های رشد</option>
-                            <option value="pesticides">سموم و آفت‌کش‌ها</option>
+                            <option value="all" data-i18n="cat_all">همه محصولات</option>
+                            <option value="chemical" data-i18n="cat_chemical">کودهای شیمیایی</option>
+                            <option value="micro" data-i18n="cat_micro">ریزمغذی‌ها</option>
+                            <option value="growth" data-i18n="cat_growth">محرک‌های رشد</option>
+                            <option value="pesticides" data-i18n="cat_pesticides">سموم و آفت‌کش‌ها</option>
                         </select>
                     </div>
 
                     <!-- Desktop Buttons -->
                     <ul class="hidden lg:flex flex-col gap-3 text-sm text-gray-700 dark:text-gray-200">
-                        <li><button onclick="filterProducts('all')" class="filter-btn w-full text-right px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center active-filter" data-cat="all"><span class="font-medium">همه محصولات</span><i class='bx bx-grid-alt text-lg'></i></button></li>
-                        <li><button onclick="filterProducts('chemical')" class="filter-btn w-full text-right px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center" data-cat="chemical"><span>کودهای شیمیایی</span><i class='bx bxs-flask text-lg'></i></button></li>
-                        <li><button onclick="filterProducts('micro')" class="filter-btn w-full text-right px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center" data-cat="micro"><span>ریزمغذی‌ها</span><i class='bx bx-microchip text-lg'></i></button></li>
-                        <li><button onclick="filterProducts('growth')" class="filter-btn w-full text-right px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center" data-cat="growth"><span>محرک‌های رشد</span><i class='bx bxs-up-arrow-circle text-lg'></i></button></li>
-                        <li><button onclick="filterProducts('pesticides')" class="filter-btn w-full text-right px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center" data-cat="pesticides"><span>سموم و آفات</span><i class='bx bxs-shield text-lg'></i></button></li>
+                        <li><button onclick="filterProducts('all')" class="filter-btn w-full px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center active-filter text-start" data-cat="all"><span class="font-medium" data-i18n="cat_all">همه محصولات</span><i class='bx bx-grid-alt text-lg'></i></button></li>
+                        <li><button onclick="filterProducts('chemical')" class="filter-btn w-full px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center text-start" data-cat="chemical"><span data-i18n="cat_chemical">کودهای شیمیایی</span><i class='bx bxs-flask text-lg'></i></button></li>
+                        <li><button onclick="filterProducts('micro')" class="filter-btn w-full px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center text-start" data-cat="micro"><span data-i18n="cat_micro">ریزمغذی‌ها</span><i class='bx bx-microchip text-lg'></i></button></li>
+                        <li><button onclick="filterProducts('growth')" class="filter-btn w-full px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center text-start" data-cat="growth"><span data-i18n="cat_growth">محرک‌های رشد</span><i class='bx bxs-up-arrow-circle text-lg'></i></button></li>
+                        <li><button onclick="filterProducts('pesticides')" class="filter-btn w-full px-4 py-3 rounded-xl hover:bg-pistachio-50 dark:hover:bg-gray-700/50 transition-all flex justify-between items-center text-start" data-cat="pesticides"><span data-i18n="cat_pesticides">سموم و آفات</span><i class='bx bxs-shield text-lg'></i></button></li>
                     </ul>
                 </div>
             </aside>
@@ -199,8 +221,8 @@
                 <div id="product-grid-view">
                     <div class="flex justify-between items-end mb-8 text-gray-800 dark:text-white">
                         <div>
-                            <span class="text-pistachio-500 text-sm font-bold block mb-1">فروشگاه</span>
-                            <h1 id="category-title" class="text-3xl font-bold">همه محصولات</h1>
+                            <span class="text-pistachio-500 text-sm font-bold block mb-1" data-i18n="page_shop">فروشگاه</span>
+                            <h1 id="category-title" class="text-3xl font-bold" data-i18n="cat_all">همه محصولات</h1>
                         </div>
                         <span id="product-count" class="text-xs md:text-sm opacity-70 px-4 py-2 rounded-full shadow-sm border border-transparent dark:border-gray-700/50 bg-white dark:bg-gray-800">...</span>
                     </div>
@@ -210,23 +232,25 @@
                     <!-- Empty State -->
                     <div id="empty-state" class="hidden flex flex-col items-center justify-center py-20 opacity-60 dark:text-gray-300">
                         <i class='bx bx-search-alt text-6xl mb-4'></i>
-                        <p>محصولی در این دسته‌بندی یافت نشد.</p>
+                        <p data-i18n="msg_empty">محصولی در این دسته‌بندی یافت نشد.</p>
                     </div>
                 </div>
 
                 <!-- Single View -->
                 <div id="single-product-view" class="hidden animate-fade-in">
-                    <button onclick="backToGrid()" class="mb-6 px-4 py-2 rounded-lg border border-pistachio-500 text-pistachio-500 hover:bg-pistachio-500 hover:text-white transition flex items-center gap-2 text-sm font-medium"><i class='bx bx-arrow-back'></i> بازگشت</button>
+                    <button onclick="backToGrid()" class="mb-6 px-4 py-2 rounded-lg border border-pistachio-500 text-pistachio-500 hover:bg-pistachio-500 hover:text-white transition flex items-center gap-2 text-sm font-medium">
+                        <i class='bx bx-arrow-back'></i> <span data-i18n="btn_back">بازگشت</span>
+                    </button>
 
                     <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 transition-colors duration-300">
                         <div class="grid grid-cols-1 md:grid-cols-2">
                             <div class="h-[350px] md:h-auto bg-gray-100 dark:bg-gray-700 relative"><img id="detail-img" class="w-full h-full object-cover"></div>
-                            <div class="p-8 md:p-10 flex flex-col justify-center">
+                            <div class="p-8 md:p-10 flex flex-col justify-center text-start">
                                 <span id="detail-cat" class="text-xs font-bold text-pistachio-600 bg-pistachio-100 dark:bg-pistachio-900/30 dark:text-pistachio-400 px-3 py-1 rounded-full w-max mb-4"></span>
-                                <h1 id="detail-title" class="text-3xl font-bold mb-2 text-pistachio-700 dark:text-pistachio-400 ltr text-left"></h1>
+                                <h1 id="detail-title" class="text-3xl font-bold mb-2 text-pistachio-700 dark:text-pistachio-400 ltr"></h1>
                                 <p id="detail-desc" class="text-justify opacity-80 leading-8 mb-8 text-sm md:text-base dark:text-gray-300"></p>
                                 <div class="bg-gray-50 dark:bg-gray-900/40 p-6 rounded-2xl border border-gray-200 dark:border-gray-700/50">
-                                    <h3 class="font-bold mb-4 text-sm dark:text-gray-200">آنالیز ضمانت شده:</h3>
+                                    <h3 class="font-bold mb-4 text-sm dark:text-gray-200" data-i18n="prod_analysis">آنالیز ضمانت شده:</h3>
                                     <div id="detail-table" class="space-y-3 text-sm dark:text-gray-300"></div>
                                 </div>
                             </div>
@@ -239,74 +263,366 @@
 
     <!-- Script -->
     <script src="products.js"></script>
-    <!-- این اسکریپت برای اطمینان از کارکرد دکمه تم و منوی موبایل اضافه شده است -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Theme Toggle Logic (Fixed) ---
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
-            const html = document.documentElement;
+    
+    <!-- جایگزین کامل بخش Script انتهای Body -->
+<script>
+    // --- 1. پایگاه داده محصولات (دو زبانه) ---
+    const productsData = [
+        {
+            id: 1,
+            category: 'chemical',
+            image: 'https://via.placeholder.com/400x400?text=NPK+20-20-20', // تصویر نمونه
+            title: { fa: 'کود کامل NPK 20-20-20', en: 'NPK 20-20-20 Fertilizer' },
+            desc: { 
+                fa: 'این کود حاوی مقادیر متعادلی از نیتروژن، فسفر و پتاسیم است که برای تمامی مراحل رشد گیاه مناسب می‌باشد.', 
+                en: 'This fertilizer contains balanced amounts of Nitrogen, Phosphorus, and Potassium, suitable for all plant growth stages.' 
+            },
+            badge: { fa: 'کود شیمیایی', en: 'Chemical Fertilizer' },
+            analysis: [
+                { name: { fa: 'نیتروژن کل', en: 'Total Nitrogen' }, value: '20%' },
+                { name: { fa: 'فسفر قابل جذب', en: 'Available Phosphate' }, value: '20%' },
+                { name: { fa: 'پتاسیم محلول', en: 'Soluble Potash' }, value: '20%' }
+            ]
+        },
+        {
+            id: 2,
+            category: 'micro',
+            image: 'https://via.placeholder.com/400x400?text=Iron+Chelate',
+            title: { fa: 'کلات آهن ۶٪', en: 'Iron Chelate 6% EDDHA' },
+            desc: { 
+                fa: 'برطرف کننده سریع کمبود آهن در خاک‌های قلیایی و آهکی با پایداری بالا.', 
+                en: 'Rapidly corrects iron deficiency in alkaline and calcareous soils with high stability.' 
+            },
+            badge: { fa: 'ریز مغذی', en: 'Micronutrient' },
+            analysis: [
+                { name: { fa: 'آهن محلول', en: 'Soluble Iron (Fe)' }, value: '6%' },
+                { name: { fa: 'اورتو-اورتو', en: 'Ortho-Ortho' }, value: '4.8%' }
+            ]
+        },
+        {
+            id: 3,
+            category: 'pesticides',
+            image: 'https://via.placeholder.com/400x400?text=Fungicide',
+            title: { fa: 'قارچ‌کش مانکوزب', en: 'Mancozeb Fungicide' },
+            desc: { 
+                fa: 'قارچ‌کش تماسی با طیف وسیع برای کنترل بیماری‌های قارچی در محصولات مختلف.', 
+                en: 'Broad-spectrum contact fungicide for controlling fungal diseases in various crops.' 
+            },
+            badge: { fa: 'سموم و آفات', en: 'Pesticide' },
+            analysis: [
+                { name: { fa: 'ماده موثره', en: 'Active Ingredient' }, value: '80% WP' }
+            ]
+        },
+        {
+            id: 4,
+            category: 'growth',
+            image: 'https://via.placeholder.com/400x400?text=Amino+Acid',
+            title: { fa: 'آمینو اسید مایع', en: 'Liquid Amino Acid' },
+            desc: { 
+                fa: 'محرک رشد قوی و افزایش دهنده مقاومت گیاه در برابر تنش‌های محیطی.', 
+                en: 'Strong growth stimulant and enhancer of plant resistance against environmental stresses.' 
+            },
+            badge: { fa: 'محرک رشد', en: 'Growth Stimulant' },
+            analysis: [
+                { name: { fa: 'آمینو اسید آزاد', en: 'Free Amino Acids' }, value: '50%' },
+                { name: { fa: 'نیتروژن آلی', en: 'Organic Nitrogen' }, value: '8%' }
+            ]
+        }
+    ];
 
-            // تنظیم اولیه آیکون بر اساس وضعیت فعلی
-            function setIcon() {
-                if(html.classList.contains('dark')){
-                    if(themeIcon) themeIcon.className = 'bx bx-sun text-xl';
+    // --- 2. دیکشنری ترجمه‌ها (UI Translations) ---
+    const translations = {
+        'fa': {
+            'brand': 'آروند', 'nav_home': 'صفحه اصلی', 'nav_about': 'معرفی شرکت', 'nav_products': 'محصولات',
+            'nav_gallery': 'خدمات و گالری', 'nav_articles': 'مقالات', 'nav_contact': 'تماس با ما', 
+            'menu_title': 'منوی خدمات', 'sidebar_title': 'دسته‌بندی‌ها', 
+            'cat_all': 'همه محصولات', 'cat_chemical': 'کودهای شیمیایی',
+            'cat_micro': 'ریز مغذی‌ها', 'cat_growth': 'محرک‌های رشد', 'cat_pesticides': 'سموم و آفات',
+            'page_shop': 'فروشگاه', 'msg_empty': 'محصولی در این دسته‌بندی یافت نشد.',
+            'btn_back': 'بازگشت', 'prod_analysis': 'آنالیز ضمانت شده:',
+            'count_unit': 'محصول', 'read_more': 'مشاهده جزئیات'
+        },
+        'en': {
+            'brand': 'Arvand', 'nav_home': 'Home', 'nav_about': 'About Us', 'nav_products': 'Products',
+            'nav_gallery': 'Gallery & Services', 'nav_articles': 'Articles', 'nav_contact': 'Contact Us', 
+            'menu_title': 'Services Menu', 'sidebar_title': 'Categories', 
+            'cat_all': 'All Products', 'cat_chemical': 'Chemical Fertilizers',
+            'cat_micro': 'Micronutrients', 'cat_growth': 'Growth Stimulants', 'cat_pesticides': 'Pesticides',
+            'page_shop': 'Shop', 'msg_empty': 'No products found in this category.',
+            'btn_back': 'Back', 'prod_analysis': 'Guaranteed Analysis:',
+            'count_unit': 'Products', 'read_more': 'View Details'
+        }
+    };
+
+    // --- 3. متغیرهای سراسری ---
+    let currentCategory = 'all';
+    let currentLang = localStorage.getItem('lang') || 'fa';
+    let activeProductId = null; // برای نگه داشتن حالت نمایش تکی
+
+    // --- 4. منطق اصلی برنامه ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // تنظیمات اولیه تم و زبان
+        setupTheme();
+        updateLanguage(currentLang);
+        
+        // چک کردن URL برای فیلتر اولیه
+        const urlParams = new URLSearchParams(window.location.search);
+        const catParam = urlParams.get('category');
+        if (catParam) currentCategory = catParam;
+
+        // رندر اولیه
+        renderProducts(currentCategory);
+        updateActiveFilter(currentCategory);
+
+        // لیسنرهای موبایل منو
+        setupMobileMenu();
+    });
+
+    // --- تغییر زبان (هسته اصلی درخواست شما) ---
+    function updateLanguage(lang) {
+        currentLang = lang;
+        const htmlTag = document.documentElement;
+        
+        // تنظیم جهت و ویژگی Lang
+        htmlTag.setAttribute('lang', lang);
+        htmlTag.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+        
+        // تغییر دکمه زبان
+        const langBtn = document.getElementById('lang-toggle');
+        if(langBtn) langBtn.innerText = lang === 'fa' ? 'EN' : 'FA';
+
+        // ترجمه تمام المنت‌های استاتیک (دارای data-i18n)
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                if(el.tagName === 'OPTION') {
+                    el.innerText = translations[lang][key];
                 } else {
-                    if(themeIcon) themeIcon.className = 'bx bx-moon text-xl';
+                    // اگر آیکون داخل دکمه هست، فقط متن کنارش عوض بشه
+                    const icon = el.querySelector('i');
+                    const span = el.querySelector('span');
+                    
+                    if (icon && !span) {
+                        // ساختار پیچیده نداریم، کل متن
+                         el.childNodes.forEach(node => {
+                            if(node.nodeType === 3 && node.nodeValue.trim() !== '') 
+                                node.nodeValue = translations[lang][key];
+                         });
+                    } else if (span) {
+                        span.innerText = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
                 }
             }
-            setIcon();
-
-            if (themeToggleBtn) {
-                // حذف ایونت لیسنرهای قبلی با کلون کردن دکمه (برای جلوگیری از دوبار کلیک)
-                const newBtn = themeToggleBtn.cloneNode(true);
-                themeToggleBtn.parentNode.replaceChild(newBtn, themeToggleBtn);
-
-                newBtn.addEventListener('click', () => {
-                    if (html.classList.contains('dark')) {
-                        html.classList.remove('dark');
-                        localStorage.setItem('theme', 'light');
-                    } else {
-                        html.classList.add('dark');
-                        localStorage.setItem('theme', 'dark');
-                    }
-                    // آپدیت آیکون بعد از تغییر کلاس
-                    const newIcon = document.getElementById('theme-icon');
-                    if(html.classList.contains('dark')){
-                        if(newIcon) newIcon.className = 'bx bx-sun text-xl';
-                    } else {
-                        if(newIcon) newIcon.className = 'bx bx-moon text-xl';
-                    }
-                });
-            }
-
-            // --- Mobile Menu Logic (Fixed) ---
-            const sidebar = document.getElementById('mobile-sidebar');
-            const overlay = document.getElementById('mobile-sidebar-overlay');
-            const openBtn = document.getElementById('mobile-menu-btn');
-            const closeBtn = document.getElementById('close-sidebar-btn');
-
-            if(openBtn) {
-                openBtn.onclick = () => {
-                    overlay.classList.remove('invisible', 'opacity-0');
-                    overlay.classList.add('visible', 'opacity-100');
-                    sidebar.classList.remove('translate-x-full');
-                    sidebar.classList.add('translate-x-0');
-                    document.body.style.overflow = 'hidden';
-                }
-            }
-
-            const closeMenu = () => {
-                overlay.classList.remove('visible', 'opacity-100');
-                overlay.classList.add('invisible', 'opacity-0');
-                sidebar.classList.remove('translate-x-0');
-                sidebar.classList.add('translate-x-full');
-                document.body.style.overflow = 'auto';
-            }
-
-            if(closeBtn) closeBtn.onclick = closeMenu;
-            if(overlay) overlay.onclick = closeMenu;
         });
-    </script>
+
+        // ذخیره در لوکال استوریج
+        localStorage.setItem('lang', lang);
+
+        // **مهم:** رندر مجدد محتوای داینامیک بر اساس زبان جدید
+        if (activeProductId) {
+            showProductDetail(activeProductId); // اگر در صفحه محصول هستیم
+        } else {
+            renderProducts(currentCategory); // اگر در لیست هستیم
+        }
+    }
+
+    // --- رندر کردن لیست محصولات ---
+    function renderProducts(category) {
+        currentCategory = category;
+        const container = document.getElementById('products-container');
+        const countEl = document.getElementById('product-count');
+        const emptyState = document.getElementById('empty-state');
+        const catTitle = document.getElementById('category-title');
+
+        // پاک کردن محتوا
+        container.innerHTML = '';
+
+        // فیلتر کردن
+        const filtered = category === 'all' 
+            ? productsData 
+            : productsData.filter(p => p.category === category);
+
+        // آپدیت عنوان دسته بندی
+        const catKey = 'cat_' + category;
+        if(catTitle) catTitle.innerText = translations[currentLang][catKey] || translations[currentLang]['cat_all'];
+
+        // آپدیت تعداد
+        if(countEl) countEl.innerText = `${filtered.length} ${translations[currentLang]['count_unit']}`;
+
+        // نمایش پیام خالی یا لیست
+        if (filtered.length === 0) {
+            emptyState.classList.remove('hidden');
+        } else {
+            emptyState.classList.add('hidden');
+            
+            filtered.forEach(product => {
+                // دریافت متن بر اساس زبان
+                const title = product.title[currentLang];
+                const badge = product.badge[currentLang];
+                
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col";
+                card.innerHTML = `
+                    <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
+                        <img src="${product.image}" alt="${title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur text-pistachio-600 dark:text-pistachio-400 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            ${badge}
+                        </span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100 group-hover:text-pistachio-600 transition-colors">${title}</h3>
+                        <div class="mt-auto pt-4 flex justify-end">
+                            <button onclick="showProductDetail(${product.id})" class="text-pistachio-600 dark:text-pistachio-400 font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                ${translations[currentLang]['read_more']} <i class='bx bx-${currentLang === 'fa' ? 'left' : 'right'}-arrow-alt'></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+    }
+
+    // --- نمایش جزئیات محصول (Single Page) ---
+    function showProductDetail(id) {
+        const product = productsData.find(p => p.id === id);
+        if (!product) return;
+
+        activeProductId = id; // ذخیره وضعیت برای تغییر زبان
+
+        // مخفی کردن گرید، نمایش تکی
+        document.getElementById('product-grid-view').classList.add('hidden');
+        document.getElementById('single-product-view').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // پر کردن اطلاعات با زبان فعلی
+        document.getElementById('detail-img').src = product.image;
+        document.getElementById('detail-cat').innerText = product.badge[currentLang];
+        document.getElementById('detail-title').innerText = product.title[currentLang];
+        document.getElementById('detail-desc').innerText = product.desc[currentLang];
+
+        // ساخت جدول آنالیز
+        const tableContainer = document.getElementById('detail-table');
+        tableContainer.innerHTML = '';
+        product.analysis.forEach(item => {
+            const row = document.createElement('div');
+            row.className = "flex justify-between items-center border-b border-gray-200 dark:border-gray-700 pb-2 last:border-0";
+            row.innerHTML = `
+                <span class="text-gray-600 dark:text-gray-400">${item.name[currentLang]}</span>
+                <span class="font-bold text-gray-800 dark:text-gray-200" dir="ltr">${item.value}</span>
+            `;
+            tableContainer.appendChild(row);
+        });
+
+        // آپدیت Breadcrumb
+        const crumbDetail = document.getElementById('crumb-detail');
+        crumbDetail.classList.remove('hidden');
+        crumbDetail.querySelector('span').innerText = product.title[currentLang];
+    }
+
+    // --- دکمه بازگشت ---
+    function backToGrid() {
+        activeProductId = null;
+        document.getElementById('single-product-view').classList.add('hidden');
+        document.getElementById('product-grid-view').classList.remove('hidden');
+        document.getElementById('crumb-detail').classList.add('hidden');
+    }
+
+    // --- هندلر فیلترها (دکمه‌های سایدبار) ---
+    function filterProducts(cat) {
+        // اگر در صفحه جزئیات هستیم برگردیم به گرید
+        if(activeProductId) backToGrid();
+        
+        renderProducts(cat);
+        updateActiveFilter(cat);
+        
+        // برای موبایل
+        const mobileSelect = document.getElementById('mobile-category-select');
+        if(mobileSelect) mobileSelect.value = cat;
+    }
+
+    function updateActiveFilter(cat) {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            if (btn.dataset.cat === cat) {
+                btn.classList.add('active-filter', 'bg-pistachio-50', 'dark:bg-gray-700', 'text-pistachio-600', 'font-bold');
+                btn.querySelector('i').classList.add('text-pistachio-600');
+            } else {
+                btn.classList.remove('active-filter', 'bg-pistachio-50', 'dark:bg-gray-700', 'text-pistachio-600', 'font-bold');
+                btn.querySelector('i').classList.remove('text-pistachio-600');
+            }
+        });
+    }
+
+    // --- هندلر موبایل سلکت ---
+    const mobileSelect = document.getElementById('mobile-category-select');
+    if(mobileSelect) {
+        mobileSelect.addEventListener('change', (e) => {
+            filterProducts(e.target.value);
+        });
+    }
+
+    // --- دکمه تغییر زبان ---
+    const langBtn = document.getElementById('lang-toggle');
+    if(langBtn) {
+        langBtn.addEventListener('click', () => {
+            const newLang = currentLang === 'fa' ? 'en' : 'fa';
+            updateLanguage(newLang);
+        });
+    }
+
+    // --- تنظیمات دارک مود و منوی موبایل (حفظ کدهای قبلی) ---
+    function setupTheme() {
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlTag = document.documentElement;
+
+        function setIcon() {
+            if(htmlTag.classList.contains('dark')) themeIcon.className = 'bx bx-sun text-xl';
+            else themeIcon.className = 'bx bx-moon text-xl';
+        }
+        setIcon();
+
+        if(themeBtn) {
+            // حذف ایونت‌های قبلی با کلون کردن
+            const newBtn = themeBtn.cloneNode(true);
+            themeBtn.parentNode.replaceChild(newBtn, themeBtn);
+            newBtn.addEventListener('click', () => {
+                htmlTag.classList.toggle('dark');
+                localStorage.setItem('theme', htmlTag.classList.contains('dark') ? 'dark' : 'light');
+                setIcon();
+            });
+        }
+    }
+
+    function setupMobileMenu() {
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('mobile-sidebar-overlay');
+        const openBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-sidebar-btn');
+
+        if(openBtn) {
+            openBtn.onclick = () => {
+                overlay.classList.remove('invisible', 'opacity-0');
+                overlay.classList.add('visible', 'opacity-100');
+                sidebar.classList.remove('translate-x-full', 'rtl:translate-x-full', 'ltr:translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        const closeMenu = () => {
+            overlay.classList.remove('visible', 'opacity-100');
+            overlay.classList.add('invisible', 'opacity-0');
+            sidebar.classList.remove('translate-x-0');
+            sidebar.classList.add('translate-x-full', 'rtl:translate-x-full', 'ltr:translate-x-full');
+            document.body.style.overflow = 'auto';
+        }
+
+        if(closeBtn) closeBtn.onclick = closeMenu;
+        if(overlay) overlay.onclick = closeMenu;
+    }
+</script>
 </body>
 </html>
